@@ -27,8 +27,6 @@ app.use(
   })
 );
 
-app.options("/api/*", cors());
-
 app.use(express.json());
 
 app.use("/api/rides", rideRoute);
