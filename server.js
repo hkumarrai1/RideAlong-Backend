@@ -27,6 +27,8 @@ app.use(
   })
 );
 
+app.options("*", cors()); // Allow preflight for all routes
+
 app.use(express.json());
 
 app.use("/api/rides", rideRoute);
