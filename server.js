@@ -34,6 +34,10 @@ app.use("/public", express.static("public"));
 app.use("/api/rides", rideRoute);
 app.use("/api/user", userRoute);
 
+app.get("/", (req, res) => {
+  res.send("🚗 RideAlong backend is live!");
+});
+
 // Global error handler
 app.use((err, req, res, next) => {
   console.error(err.stack);
