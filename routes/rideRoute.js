@@ -7,7 +7,6 @@ const calculateDemandFactor = require("../middleware/Demand");
 router.post("/bookRide", async (req, res) => {
   try {
     let { currentLocation, destination } = req.body;
-    // Parse lat/lon as numbers in case they are sent as strings
     currentLocation = {
       lat: Number(currentLocation?.lat),
       lon: Number(currentLocation?.lon),
@@ -16,7 +15,7 @@ router.post("/bookRide", async (req, res) => {
       lat: Number(destination?.lat),
       lon: Number(destination?.lon),
     };
-    // Validate presence and type of coordinates
+
     if (
       !currentLocation ||
       !destination ||
@@ -46,9 +45,21 @@ router.post("/bookRide", async (req, res) => {
       baseFare * (1 + weatherFactor + trafficFactor + demandFactor);
 
     const rideOptions = [
-      { type: "Mini", avatar: "mini_car_url", fare: finalFare },
-      { type: "Sedan", avatar: "sedan_car_url", fare: finalFare + 50 },
-      { type: "SUV", avatar: "suv_car_url", fare: finalFare + 100 },
+      {
+        type: "Mini",
+        avatar: "https://your-backend-url.onrender.com/public/cars/mini.png",
+        fare: finalFare,
+      },
+      {
+        type: "Sedan",
+        avatar: "https://your-backend-url.onrender.com/public/cars/sedan.png",
+        fare: finalFare + 50,
+      },
+      {
+        type: "SUV",
+        avatar: "https://your-backend-url.onrender.com/public/cars/suv.png",
+        fare: finalFare + 100,
+      },
     ];
 
     return res.json({ options: rideOptions });
