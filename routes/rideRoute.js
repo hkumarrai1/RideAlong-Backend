@@ -47,17 +47,17 @@ router.post("/bookRide", async (req, res) => {
     const rideOptions = [
       {
         type: "Mini",
-        avatar: "https://your-backend-url.onrender.com/public/cars/mini.png",
+        avatar: "https://your-backend-url.onrender.com/public/cars/Mini.png",
         fare: finalFare,
       },
       {
         type: "Sedan",
-        avatar: "https://your-backend-url.onrender.com/public/cars/sedan.png",
+        avatar: "https://your-backend-url.onrender.com/public/cars/Sedan.png",
         fare: finalFare + 50,
       },
       {
         type: "SUV",
-        avatar: "https://your-backend-url.onrender.com/public/cars/suv.png",
+        avatar: "https://your-backend-url.onrender.com/public/cars/SUV.png",
         fare: finalFare + 100,
       },
     ];
